@@ -11,7 +11,7 @@ const express = require('express');
 const admin = require('firebase-admin');
 const bodyParser = require('body-parser');
 const app = express();
-const PORT = 4000; // Or any available port
+const PORT = process.env.PORT || 4000; // Use Vercel's port or fallback to 4000 for local development
 const cors = require('cors');
 app.use(cors());
 
@@ -84,5 +84,5 @@ app.post('/send-push', async (req, res) => {
 // ✅ Start the server
 // The application starts listening for incoming requests on the specified port.
 app.listen(PORT, () => {
-  console.log(`🚀 Push notification server running at http://localhost:${PORT}`);
+  console.log(`🚀 Push notification server running at ${PORT}`);
 });
