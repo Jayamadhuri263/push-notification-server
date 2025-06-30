@@ -48,6 +48,13 @@ admin.initializeApp({
 // This middleware allows your Express app to read JSON data sent in the request body.
 app.use(bodyParser.json());
 
+
+// ✅ Add a simple GET route for the root URL
+app.get('/', (req, res) => {
+  res.status(200).send("ChatterJoy's Push Notification Server is running!");
+});
+
+
 // ✅ Route to send push notification
 // This defines an API endpoint that can be called to send push notifications.
 app.post('/send-push', async (req, res) => {
